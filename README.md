@@ -26,6 +26,7 @@ I got this error or something similar when I was trying to display matplotlib pl
 - _hd-332231.ipynb_: a version of the `eleanor` tutorial where the star name is a variable that can be arbitrarily assigned.
 - _tips-tricks.ipynb_: the tips and tricks tutorial on `eleanor` which describes things such as how to remove points from the lightcurve, change the aperture size, introduce your own corrections, and more.
 - _vis-crossmatch.ipynb_: another `eleanor` tutorial which demonstrates some fun visualization and display tools. Drawing the aperture as a unfilled box over the star instead of a filled box, for instance, as well as drawing the light curves for each pixel of the aperture, highlighting known stars in the background of the aperture, and more.
+- _HAT-P-11b; KELT-9b lightcurves.ipynb_: a sampling of different lightcurves for the exoplanets HAT-P-11b and KELT-9b. I made it on week 3.
 
 
 ## 3. Running the code
