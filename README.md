@@ -4,19 +4,23 @@ This repository was started in May of 2020 by Jack Dinsmore to contain code for 
 ## 1. Solutions to bugs I encountered
 
 ### 1.1 Wrong lightcurves
-When the lightcurve for a system seems totally wrong &mdash; like full of spikes that make it unrecognizable &mdash; I found it is often because the file(s) containing the data for the sector that that star is in may have been corrupted. The solution was to delete the file(s). Eleanor will then re-download it. 
+When the lightcurve for a system seems totally wrong &mdash; like full of spikes that make it unrecognizable &mdash; I found it is often because the file(s) containing the data for the sector that that star is in may have been corrupted. The solution was to delete the file(s). `eleanor` will then re-download it. 
 
-On linux, or in the Ubuntu Subsystem for Windows, the apppropriate command is 
+There are three places where files need to be deleted.
 
-`rm -r /home/<user name>/.eleanor/metadata/s<sector num>`
+1. When the `eleanor.Source` command is called, eleanor will print out several “INFO: Found cached file \<file name\>…” messages. Navigate to the directory containing these files and delete the directory.
+2. Delete the `.eleanor/metadata/s<sector num>` directory, where `<sector num>` is the sector that the star was observed in; it will be part of the name of the directory you deleted in step 1.
+3. If `eleanor.Source` outputs one final "INFO: Found cached file..." line, but this time the file name is just a name and not a path, navigate to the `.eleanor` directory and delete this file.
 
-where `<user name>` is your user name and `<sector num>` is the sector number, which you may have put in your `eleanor.Source` command. For WASP-100 b, it's `0001`.
-
-If this fails, you can try deleting the entire `.eleanor` directory. You will know this worked if `eleanor.Source` downloads a file instead of printing `INFO: Found cached file`.... Hopefully, this solves the problem.
+You may need to try re-running the `eleanor.Source` command several times, each time deleting all these files, before you can find them all. But if this fails, you can try deleting the entire `.eleanor` directory.
 
 
 ### 1.2. `'IOStream' object has no attribute 'flush'` error on Windows.
 I got this error or something similar when I was trying to display matplotlib plots. The problem was that my Windows install of ipython was not complete. There may be a better way to fix this, but I moved to my Ubuntu installation of python, which worked perfectly.
+
+### 1.3 `'TargetData' object has no attribute`... errors
+I got these errors when the cached data for the star had been corrupted. The solution is to delete all the cached data. The process to do this is described in the solution to 1.1.
+
 
 
 ## 2. File descriptions
@@ -34,3 +38,12 @@ I got this error or something similar when I was trying to display matplotlib pl
 I use jupyter notebooks on my Ubuntu subsystem for windows. My Windows install's version of ipython does not work with eleanor, and bare python on the Ubuntu subsystem cannot display matplotlib plots. So I used jupyter notebooks. 
 
 To run these notebooks (`.ipynb` files), install `jupyter notebook`, navigate in a bash terminal to the _photometry-age-dating_ directory, and run the command `jupyter notebook`. Copy and paste the URL into a browser. You can run and edit the code from the browser.
+
+
+## 4. `eleanor` bugs
+
+- Sometimes, the fits files for some eleanor stars becomes corrupted. I am unsure what causes this exactly, but it happened to me and other people several times. It may have something to do with `eleanor.TargetData.save()`. I encountered this error by running the tips and tricks tutorial. Specifically, when you reload the star with `eleanor.Source`, get the data with `eleanor.TargetData`, and then call `get_lightcurve` on the data, the error `"'TargetData' object has no attribute 'tpf_flux_bkg'` is thrown.\
+\
+My solution was to delete the cached fits files (both in the `~/.eleanor/mastDownload/HLSP/hlsp_...` directory and the one in the `~/.eleanor` directory), and delete the directory containing the metadata of the corresponding sector. Then I could redo the `Source` command and redownload everything and it worked.\
+\
+My suggestion would be to add an optional argument `use_cache=True` or something to the `Source` command which would clear the current cache for the star and redownload everything if set to `False.`
