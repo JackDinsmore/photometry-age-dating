@@ -4,7 +4,7 @@ This repository was started in May of 2020 by Jack Dinsmore to contain code for 
 
 ## 1. Solutions to bugs I encountered
 
-### 1.1 Wrong lightcurves
+### 1.1 Huge spikes in lightcurves
 
 When the lightcurve for a system seems totally wrong &mdash; like full of spikes that make it unrecognizable &mdash; I found it is often because the file(s) containing the data for the sector that that star is in may have been corrupted. The solution was to delete the file(s). `eleanor` will then re-download it.
 
@@ -23,6 +23,10 @@ I got this error or something similar when I was trying to display matplotlib pl
 ### 1.3 `'TargetData' object has no attribute`... errors
 
 I got these errors when the cached data for the star had been corrupted. The solution is to delete all the cached data. The process to do this is described in the solution to 1.1.
+
+### 1.4 Transits appear as vague spikes above and below the mean, not just below
+
+This happened to me when I flattened the lightcurves using the `lightkurve` flatten command. Try not flattening the data; the transits may show up more clearly where they are supposed to be. Oddly, this feature only appeared when I was using a Tess lightcurve, not Kepler.
 
 ## 2. File descriptions
 
