@@ -36,7 +36,8 @@ This happened to me when I flattened the lightcurves using the `lightkurve` flat
 - _vis-crossmatch.ipynb_: another `eleanor` tutorial which demonstrates some fun visualization and display tools. Drawing the aperture as a unfilled box over the star instead of a filled box, for instance, as well as drawing the light curves for each pixel of the aperture, highlighting known stars in the background of the aperture, and more.
 - _HAT-P-11b; KELT-9b lightcurves.ipynb_: a sampling of different lightcurves for the exoplanets HAT-P-11b and KELT-9b. I made it on week 3.
 - _detrending-eleanor.ipynb_: a notebook that loads the tpfs of a sample star using `eleanor` and transfers them to `lightkurve` for detrending analysis.
-- _view-clusters.ipynb_: a program to display full frame images of several star clusters that may be useful for the main project.
+- **cluster-lightcurves/**_view-clusters.ipynb_: a program to display full frame images of several star clusters, find their lightcurves, and background-subtract them.
+- **cluster-lightcurves/**_\*.png_: images collected from _view-clusters.ipynb_. Most of them are screenshots of the lightcurves from three test clusters to determine what method for isolating the background is most effective.
 
 ## 3. Running the code
 
