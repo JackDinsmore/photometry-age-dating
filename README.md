@@ -37,9 +37,9 @@ This happened to me when I flattened the lightcurves using the `lightkurve` flat
 - _HAT-P-11b; KELT-9b lightcurves.ipynb_: a sampling of different lightcurves for the exoplanets HAT-P-11b and KELT-9b. I made it on week 3.
 - _detrending-eleanor.ipynb_: a notebook that loads the tpfs of a sample star using `eleanor` and transfers them to `lightkurve` for detrending analysis.
 
-- **cluster-lightcurves/**_cluster-\*.ipynb_: a program to download the TPFs of certain clusters and generate background-corrected lightcurves.
-- **cluster-lightcurves/**_fourier-transform-tests.ipynb_: a program investigating the possibility of using a fourier decomposition of a frame in a cluster's TPF to help generate the sky mask
-- **cluster-lightcurves/**_\*.png_: images collected from _cluster-\*.ipynb_. Most of them are screenshots of the lightcurves from three test clusters to determine what method for isolating the background is most effective.
+- **cluster-lightcurves/**_cluster-\*.ipynb_: programs to download the TPFs of certain clusters and generate background-corrected lightcurves.
+- **cluster-lightcurves/fourier-tests/***: investigates the possibility of using a fourier decomposition of a frame in a cluster's TPF to help generate the sky mask
+- **cluster-lightcurves/tests/\***: images collected from _cluster-\*.ipynb_. Most of them are screenshots of the lightcurves from three test clusters to determine what method for isolating the background is most effective, while _scale-factor-tests.png_ tests different scale factors on one cluster to determine an optimal choice.
 
 ## 3. Running the code
 
