@@ -41,6 +41,8 @@ This happened to me when I flattened the lightcurves using the `lightkurve` flat
 - **cluster-lightcurves/fourier-tests/***: investigates the possibility of using a fourier decomposition of a frame in a cluster's TPF to help generate the sky mask
 - **cluster-lightcurves/tests/\***: images collected from _cluster-\*.ipynb_. Most of them are screenshots of the lightcurves from three test clusters to determine what method for isolating the background is most effective, while _scale-factor-tests.png_ tests different scale factors on one cluster to determine an optimal choice.
 
+- **astroquery-lightcurves/\***: programs to calculate the lightcurves of stars nearing the clusters we're investigating, so that we can pinpoint the variations in the cluster lightcurve to individual stars and also check our cluster lightcurves by seeing how they compare to the sum of the lightcurves of the component stars.
+
 ## 3. Running the code
 
 I use jupyter notebooks on my Ubuntu subsystem for windows. My Windows install's version of ipython does not work with eleanor, and bare python on the Ubuntu subsystem cannot display matplotlib plots. So I used jupyter notebooks.
