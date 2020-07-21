@@ -2,3 +2,4 @@
 *.zip
 *.tpf
 astroquery-lightcurves/mastDownload
+**/.ipynb_checkpoints/
