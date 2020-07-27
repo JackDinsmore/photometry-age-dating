@@ -43,6 +43,8 @@ This happened to me when I flattened the lightcurves using the `lightkurve` flat
 
 - **astroquery-lightcurves/\***: programs to calculate the lightcurves of stars nearing the clusters we're investigating, so that we can pinpoint the variations in the cluster lightcurve to individual stars and also check our cluster lightcurves by seeing how they compare to the sum of the lightcurves of the component stars.
 
+- **tpf-zoom-in/\***: we started to try to isolate varying lightcurves to sections of the TPF; these programs cut the TPF into pieces and create lightcurves for each piece.
+
 ## 3. Running the code
 
 I use jupyter notebooks on my Ubuntu subsystem for windows. My Windows install's version of ipython does not work with eleanor, and bare python on the Ubuntu subsystem cannot display matplotlib plots. So I used jupyter notebooks.
